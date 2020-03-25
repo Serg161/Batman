@@ -1,8 +1,14 @@
+*,
+*:after,
+*::before {
+  box-sizing: border-box;
+}
+
 body {
   background-color: #0A090A;
-  color: white;
+  color: #ffffff;
   font-family: 'Roboto', sans-serif;
-  background-image: url("../img/main-bg.jpg");
+  background-image: url("../img/main-bg.png");
   background-repeat: no-repeat;
   background-position: top center;
 }
@@ -16,11 +22,12 @@ body {
 
 /* Стили для шапки */
 .header {
-display: flex;
-/* Выравниваю по центру по вертикали */
-align-items: center;
-justify-content: space-between;
-padding-top: 45px;
+  display: flex;
+  /* Выравниваю по центру по вертикали */
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 45px;
+  margin-bottom: 30%;
 }
 
 .logo {
@@ -28,6 +35,8 @@ padding-top: 45px;
   font-weight: 900;
   font-size: 24px;
   line-height: 28px;
+  color: #ffffff;
+  text-decoration: none;
 }
 
 .search {
@@ -47,18 +56,25 @@ padding-top: 45px;
   line-height: 16px;
 }
 
-::-webkit-input-placeholder { /* Chrome */
-  color:#AEAEAE;
-}
-:-ms-input-placeholder { /* IE 10+ */
+.search-input::-webkit-input-placeholder {
+  /* Chrome */
   color: #AEAEAE;
 }
-::-moz-placeholder { /* Firefox 19+ */
+
+.search-input:-ms-input-placeholder {
+  /* IE 10+ */
+  color: #AEAEAE;
+}
+
+.search-input::-moz-placeholder {
+  /* Firefox 19+ */
   color: #AEAEAE;
   opacity: 1;
 }
-:-moz-placeholder { /* Firefox 4 - 18 */
-  color:#AEAEAE;
+
+.search-input:-moz-placeholder {
+  /* Firefox 4 - 18 */
+  color: #AEAEAE;
   opacity: 1;
 }
 
@@ -66,6 +82,13 @@ padding-top: 45px;
   background-color: transparent;
   border: none;
   padding: 10px 18px;
+  cursor: pointer;
+}
+
+.bookmark {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
 }
 
 .user {
@@ -81,3 +104,239 @@ padding-top: 45px;
   /* Содержимое элемента обрезается, выравниваясь по центру с сохранением пропорций таким образом, чтобы полностью заполнить область контейнера - свойство cover*/
   object-fit: cover;
 }
+
+/* Заголовок Бэтмен */
+.title {
+  margin: 0;
+  font-family: 'Playfair Display', serif;
+  font-size: 48px;
+  line-height: 64px;
+  margin-bottom: 7px;
+}
+
+/* Заголовок на Англ. */
+.title-en {
+  display: inline-block;
+  font-size: 20px;
+  line-height: 23px;
+  color: #787878;
+  margin-bottom: 38px;
+}
+
+/* Блок инфо */
+.info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 108px;
+}
+
+/* левый блок с Фильмом, годом и просмотром */
+.movie-info {
+  display: flex;
+  align-items: center;
+}
+
+/* Кнопка Фильм */
+.tag {
+  display: inline-block;
+  font-size: 16px;
+  line-height: 19px;
+  color: #333333;
+  background: #FFFFFF;
+  border-radius: 3px;
+  padding: 5px 10px;
+  margin-right: 20px;
+}
+
+/* США, 2021 год */
+.country {
+  font-size: 16px;
+  line-height: 19px;
+  margin-right: 33px;
+
+}
+
+/* Кнопка смотреть трейлер */
+.play {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  color: #ffffff;
+  line-height: 19px;
+  text-decoration: none;
+}
+
+/* Псевдоэлемент кнопки Смотреть трейлер */
+
+.play:before {
+  content: '';
+  width: 30px;
+  height: 30px;
+  background-image: url("../img/play.svg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  margin-right: 15px;
+}
+
+/* Кнопка подробнее */
+.more {
+  display: flex;
+  align-items: center;
+  color: #ffffff;
+  font-size: 16px;
+  line-height: 19px;
+  text-decoration: none;
+}
+
+/* Псевдоэлемент кнопки подробнее  */
+.more::after {
+  content: '';
+  width: 30px;
+  height: 30px;
+  background-image: url("../img/play.svg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  margin-left: 15px;
+  /* переворачиваем картинку на 90гр. */
+  transform: rotate(90deg);
+}
+
+/* Стили контента */
+.content {
+  display: flex;
+  justify-content: space-between;
+  background: #FFFFFF;
+  border-radius: 3px;
+  color: #000;
+  padding: 43px 50px;
+}
+
+/* Стили постера */
+.poster {
+  display: block;
+  margin-top: -80px;
+}
+
+/* Стили кнопки "Буду смотреть" */
+.button {
+  background: #FF8F27;
+  font-size: 14px;
+  line-height: 16pzx;
+  color: #FFFFFF;
+  padding: 10px 44px;
+  margin-top: 20px;
+  border: none;
+  cursor: pointer;
+}
+
+/* В главных ролях */
+.actors-title {
+  font-weight: 900;
+  font-size: 16px;
+  line-height: 150%;
+  padding-left: 15px;
+  margin-bottom: 10px;
+}
+
+/* общие стили Список актеров */
+.actors-list {
+  margin: 0;
+  list-style: none;
+  text-decoration-line: underline;
+  padding-left: 15px;
+}
+
+/* список актеров */
+.actors-list-item {
+  font-size: 16px;
+  line-height: 150%;
+  margin-right: 40px;
+}
+
+/* Стили бля блока в целом */
+.full-content {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* стили для блока навигации */
+.full-info {
+  flex: 0.97;
+}
+
+/* Отступ от текста до банера */
+.tabs-content {
+  margin-right: 70px;
+}
+
+.tabs-item {
+  color: #000;
+  text-decoration: none;
+  margin-right: 40px;
+  font-size: 18px;
+  line-height: 21px;
+}
+
+.tabs-item-active {
+  color: #FF8F27;
+}
+
+.text {
+  text-align: justify;
+  font-size: 16px;
+  line-height: 140%;
+}
+
+/* Стили для заголовка подписки */
+.subscribe-title {
+  font-weight: 900;
+  font-size: 16px;
+  line-height: 150%;
+  margin-bottom: 14px;
+}
+
+
+/* Пробный СДЕЛАЛ САМ*/
+
+/* Общие стили для формы */
+
+.form-inline {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  margin-bottom: 48px;
+  border: none;
+}
+
+/* Стили для поля ввода */
+.form-control {
+  max-width: 170px;
+  color: #9B9B9B;
+  font-size: 14px;
+  line-height: 16px;
+  background: rgba(241, 241, 241, 0.5);
+  padding: 12px 0 12px 15px;
+  margin: 0;  
+  border: none;
+}
+
+/* Стили для кнопки */
+.btn-default {
+  margin: -1px;
+  padding: 0;
+  width: 40px;
+  height: 43px;
+  border: none;
+  background: none;
+  background-color: transparent;
+  outline: none
+}
+
+/* Стили для кнопки при нажатии */
+.btn-default:hover {
+  background-color: transparent;
+  border: none;
+  outline: none
+}
+
