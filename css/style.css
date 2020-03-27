@@ -202,20 +202,25 @@ body {
   transform: rotate(90deg);
 }
 
-/* Стили контента */
+/* Стили контента меняем пиксели на % для адаптивности*/
 .content {
   display: flex;
   justify-content: space-between;
   background: #FFFFFF;
   border-radius: 3px;
   color: #000;
-  padding: 43px 50px;
+  padding: 3% 4%;
+}
+
+/* Отступ для адаптивности между постером и текстом */
+.short-info {
+  margin-right: 3%;
 }
 
 /* Стили постера */
 .poster {
   display: block;
-  margin-top: -80px;
+  margin-top: -40%;
 }
 
 /* Стили кнопки "Буду смотреть" */
@@ -267,31 +272,59 @@ body {
 
 /* Отступ от текста до банера */
 .tabs-content {
+  display: none;
   margin-right: 70px;
+}
+
+.visible {
+  display: block;
 }
 
 .tabs-item {
   color: #000;
   text-decoration: none;
-  margin-right: 40px;
+  margin-right: 4%;
   font-size: 18px;
   line-height: 21px;
+}
+
+/* Убираем отступ у последнего элемента меню или  селектор:not(:last-child) */
+.tabs-item:last-child {
+  margin-right: 0;
 }
 
 .tabs-item-active {
   color: #FF8F27;
 }
 
+.tabs {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 4%;
+}
+
+.bookmark-added {
+  align-items: stretch;
+}
+
 .text {
   text-align: justify;
   font-size: 16px;
   line-height: 140%;
+  margin-top: 0;
+}
+
+.banner-img {
+  width: 100%;
+  height: auto;
+  padding: 0;
+  margin: 0;
 }
 
 /* Стили для заголовка подписки */
 .subscribe-title {
   font-weight: 900;
-  font-size: 16px;
+  font-size: 15px;
   line-height: 150%;
   margin-bottom: 14px;
 }
@@ -309,34 +342,178 @@ body {
   border: none;
 }
 
+/* Соединяем поле с кнопкой и сдвигаем банер */
+.subscribe-form {
+  display: flex;
+  margin-bottom: 48px;
+}
+
 /* Стили для поля ввода */
-.form-control {
-  max-width: 170px;
-  color: #9B9B9B;
+.subscribe-input {
+  background: rgba(196, 196, 196, 0.5);
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+  padding: 12px 0 12px 15px;
+  border: none;
+  color: #AEAEAE;
   font-size: 14px;
   line-height: 16px;
-  background: rgba(241, 241, 241, 0.5);
-  padding: 12px 0 12px 15px;
-  margin: 0;  
-  border: none;
 }
 
 /* Стили для кнопки */
-.btn-default {
-  margin: -1px;
-  padding: 0;
-  width: 40px;
-  height: 43px;
+.subscribe-button {
+  background: #FF8F27;
+  border-radius: 0px 5px 5px 0px;
   border: none;
-  background: none;
-  background-color: transparent;
-  outline: none
+  padding: 12px;
 }
 
 /* Стили для кнопки при нажатии */
-.btn-default:hover {
+.subscribe-button:hover {
   background-color: transparent;
+  outline: none;
+  background: rgb(33, 151, 29);
+  border-radius: 0px 5px 5px 0px;
   border: none;
-  outline: none
+  padding: 12px;
+  cursor: pointer;
 }
 
+/* Медиа запросы на адаптивность */
+
+@media (max-width: 1200px) {
+  .conteiner {
+    max-width: 960px;
+  }
+
+  .tabs-item {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 992px) {
+  .conteiner {
+    max-width: 740px;
+  }
+
+  .tabs {
+    flex-wrap: wrap;
+  }
+
+  .tabs-item {
+    flex-basis: 20%;
+    line-height: 2;
+  }
+
+  /* Правила для текста, подписки и банера */
+  .full-content {
+    flex-wrap: wrap;
+  }
+
+  .tabs-content {
+    margin-bottom: 5%;
+  }
+
+  .text {
+    font-size: 14px;
+  }
+
+  .actors-list-item {
+    font-size: 14px;
+  }
+
+  /* Выровнял контент по сеседине */
+  .full-content {
+    justify-content: center;
+  }
+
+  /* Убрал отступ у текста */
+  .tabs-content {
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .conteiner {
+    max-width: 540;
+  }
+
+  .more {
+    display: none;
+  }
+
+  .tabs-item {
+    flex-basis: 33%;
+  }
+
+  /* Выровнял контент по сеседине */
+  .full-content {
+    justify-content: center;
+  }
+
+  /* Убрал отступ у текста */
+  .tabs-content {
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 578px) {
+  .conteiner {
+    width: 90%;
+  }
+
+  /* Установил отступ межды смотреть фильм и кнопкой */
+  .tag {
+    margin-right: 40px;
+  }
+
+  .header {
+    flex-wrap: wrap;
+  }
+
+  .search {
+    flex-basis: 100%;
+    order: 3;
+    margin-top: 5%;
+  }
+
+  .tabs {
+    justify-content: space-around;
+  }
+
+  .content {
+    flex-wrap: wrap;
+  }
+
+  .actors-list,
+  .actors-title {
+    display: none;
+  }
+
+  .short-info {
+    margin-bottom: 5%;
+  }
+
+  .movie-info {
+    flex-wrap: wrap;
+  }
+
+  .play {
+    flex-basis: 100%;
+    margin-top: 10%;
+  }
+
+  .short-info {
+    margin-right: 0;
+  }
+
+  .button {
+    width: 100%;
+  }
+
+  .poster {
+    margin-top: -20%;
+    display: inline-block;
+    width: 100%;
+  }
+}

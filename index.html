@@ -10,6 +10,10 @@
     rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Roboto:400,900&display=swap&subset=cyrillic" rel="stylesheet">
 
+  <link rel="stylesheet" href="./css/normalize.css">
+
+  <link rel="stylesheet" href="./css/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="./css/animate.css">
   <link rel="stylesheet" href="./css/style.css">
 </head>
 
@@ -20,7 +24,7 @@
         <a href="index.html" class="logo">КиноПульс</a>
       </div>
       <form action="" class="search">
-        <input type="search" class="search-input" placeholder="Фильмы, сериалы, актеры">
+        <input type="text" class="search-input" placeholder="Фильмы, сериалы, актеры">
         <button type="submit" class="search-button">
           <img src="img\search-icon.svg" alt="search-icon">
         </button>
@@ -35,16 +39,16 @@
     </header>
 
     <main class="main">
-      <h1 class="title">Бэтмен</h1>
+      <h1 class="title animated fadeInRight">Бэтмен</h1>
       <!-- тег small - мини текст -->
-      <small class="title-en">The Batman</small>
+      <small class="title-en animated fadeInLeft">The Batman</small>
 
       <!-- Блок ИНФО -->
       <div class="info">
-        <div class="movie-info">
+        <div class="movie-info animated">
           <span class="tag">Фильм</span>
           <span class="country">США, 2021 год</span>
-          <a href="#" class="play">Смотреть трейлер</a>
+          <a data-fancybox href="https://youtu.be/Xo8i2ZDMlQg" class="play">Смотреть трейлер</a>
         </div>
         <a href="#" class="more">Подробнее</a>
       </div> <!-- Конец /.info    -->
@@ -74,20 +78,20 @@
         <div class="full-info">
 
           <nav class="tabs">
-            <a href="#" class="tabs-item tabs-item-active">Описание</a>
-            <a href="#" class="tabs-item">Рецензии</a>
-            <a href="#" class="tabs-item">Премьеры</a>
-            <a href="#" class="tabs-item">Актеры</a>
+            <a href="#about" class="tabs-item tabs-item-active">Описание</a>
+            <a href="#reviews" class="tabs-item">Рецензии</a>
+            <a href="#premieres" class="tabs-item">Премьеры</a>
+            <a href="#actors" class="tabs-item">Актеры</a>
             <a href="#" class="tabs-item">Награды</a>
             <a href="#" class="tabs-item">Факты</a>
             <a href="#" class="tabs-item">Сайты</a>
             <a href="#" class="tabs-item">
-              <img src="./img/bookmark.svg" alt="" class="bookmark-added">
+              <img src="./img/bookmark-icon.svg" alt="" class="bookmark-added">
             </a>
           </nav>
 
           <div class="full-content">
-            <div class="tabs-content">
+            <div class="tabs-content visible" id="about">
               <p class="text">Предстоящий американский супергеройский фильм, основанный на одноимённых комиксах
                 издательства DC Comics. Картина будет выпущена компанией Warner Bros. и будет перезагрузкой всех фильмов
                 о Бэтмене.</p>
@@ -113,6 +117,26 @@
                 подтвердил, что Джо Манганьелло сыграет наёмника Слейда Уилсона, который, возможно, станет главным
                 злодеем фильма.</p>
             </div>
+            
+            <div class="tabs-content" id="reviews">
+              <p class="text">Тут скоро появятся рецензии</p>
+            </div>
+
+            <div class="tabs-content" id="premieres">
+              <p class="text">Тут скоро появятся Премьеры</p>
+            </div>
+
+            <div class="tabs-content" id="actors">
+              <p class="text">Тут скоро появятся Актеры</p>
+            </div>
+
+            <div class="tabs-content" id="reviews">
+              <p class="text">Тут скоро появятся Награды</p>
+            </div>
+
+            <div class="tabs-content" id="reviews">
+              <p class="text">Тут скоро появятся рецензии</p>
+            </div>
 
             <div class="subscribe">
               <!-- Форма подписки -->
@@ -120,19 +144,18 @@
 
               <!-- Пробовал сам. НАЧАЛО -->
               <div class="container-form">
-                <form class="form-inline" role="form">
-                  <div class="form-group">
-                    <input type="email" class="form-control" id="email" placeholder="Ваш Email">
-                  </div>
-                  <button type="submit" class="btn btn-default">
-                    <img src="./img/button-check.svg" alt="button-check" class="button-check">
+                <form class="subscribe-form" role="form" action="#">
+                  <input type="text" class="subscribe-input" placeholder="Ваш Email">
+                  <button class="subscribe-button">
+                    <img src="./img/check.svg" alt="check" class="button-check">
                   </button>
                 </form>
               </div>
               <!-- Попробовал сам. КОНЕЦ-->
+              <div class="banner">
+                <img src="./img/banner.jpg" alt="Banner" class="banner-img">
+              </div>
 
-
-              <img src="./img/banner.jpg" alt="Banner">
 
             </div>
           </div>
@@ -149,6 +172,14 @@
 
   </div> <!-- /.conteiner -->
 
+  <!-- Бодключаем библиотеку jQuery -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+
+  <!-- Подключаем Fancybox -->
+<script src="./js/jquery.fancybox.min.js"></script>
+
+<!-- Подключаем свои скрипты -->
+<script src="./js/main.js"></script>
 </body>
 
 </html>
